@@ -1,5 +1,6 @@
 import torch
 import numpy as np
+import torch.optim.lr_scheduler as lr_scheduler
 
 
 # Cumulative test loss is criteria for returning,
@@ -28,6 +29,8 @@ def training_nn(n_epochs, batchsize, model, optimizer,
 
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     model.to(device)
+
+    scheduler = lr_scheduler.LinearLR(optimizer, start_factor=1.0, end_factor=0.01, total_iters=20)
 
     loss_array = [1000]
     loss_array_train = []
@@ -108,6 +111,9 @@ def training_cnn(n_epochs, batchsize, model, optimizer,
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     model.to(device)
 
+    scheduler = lr_scheduler.LinearLR(optimizer, start_factor=1.0, end_factor=0.01, total_iters=20)
+
+
     loss_array = [1000]
     loss_array_train = []
 
@@ -148,13 +154,12 @@ def training_cnn(n_epochs, batchsize, model, optimizer,
             return model, np.average(loss_val), \
                 loss_array[1:], loss_array_train
 
-        """
         if epoch > 10:
             if np.average(loss_val) > loss_array[-5]:
-                print(f"CNN{model_name} Validation error rising! {np.average(loss_val)}")
+                #print(f"CNN{model_name} Validation error rising! {np.average(loss_val)}")
                 return model, np.average(loss_val), \
                     loss_array[1:], loss_array_train
-        """
+
         loss_array.append(np.average(loss_val))
 
     return model, np.average(loss_val), \
@@ -190,6 +195,8 @@ def training_mmnn(n_epochs, batchsize, nn1, nn2, cnn1,
     nn1.to(device)
     nn2.to(device)
     cnn1.to(device)
+
+    scheduler = lr_scheduler.LinearLR(optimizer, start_factor=1.0, end_factor=0.01, total_iters=20)
 
     loss_array = [1000]
     loss_array_train = []

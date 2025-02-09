@@ -122,12 +122,9 @@ def statistics(model, data, analyt_sol, model_name):
           + "-------------------")
     if model_name == "NN" or model_name == "CNN":
         predictions = model(data).cpu().detach().numpy()
-        print(f"RMSE of {model_name} model: \
-               {rmse(predictions,analyt_sol.cpu())}")
-        print(f"MAPE of {model_name} model: \
-              {mean_absolute_percentage_error(predictions, analyt_sol.cpu())}")
-        print(f"r-squared score of {model_name} model: \
-              {r2_score(predictions, analyt_sol.cpu())}")
+        print(f"RMSE of {model_name} model: {rmse(predictions,analyt_sol.cpu())}")
+        print(f"MAPE of {model_name} model: {mean_absolute_percentage_error(predictions, analyt_sol.cpu())}")
+        print(f"r-squared score of {model_name} model: {r2_score(predictions, analyt_sol.cpu())}")
     else:
         InDataNN = data[0]
         InDataCNN1 = data[1]
@@ -138,9 +135,6 @@ def statistics(model, data, analyt_sol, model_name):
                              dtype=torch.float32).to(device)
 
         predictions = model[-1](preds).cpu().detach().numpy()
-        print(f"RMSE of {model_name} model: \
-               {rmse(predictions,analyt_sol.cpu())}")
-        print(f"MAPE of {model_name} model: \
-              {mean_absolute_percentage_error(predictions, analyt_sol.cpu())}")
-        print(f"r-squared score of {model_name} model: \
-              {r2_score(predictions, analyt_sol.cpu())}")
+        print(f"RMSE of {model_name} model: {rmse(predictions,analyt_sol.cpu())}")
+        print(f"MAPE of {model_name} model: {mean_absolute_percentage_error(predictions, analyt_sol.cpu())}")
+        print(f"r-squared score of {model_name} model: {r2_score(predictions, analyt_sol.cpu())}")

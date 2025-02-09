@@ -14,50 +14,37 @@ class NeuralNetwork(nn.Module):
             output_size (int): Number of outputs
         """
         super(NeuralNetwork, self).__init__()
-        self.fc1 = nn.Linear(input_size, hidden_size)
-        self.relu = nn.ReLU()
-        self.batch_norm1 = nn.BatchNorm1d(hidden_size)
-        
-        self.fc2 = nn.Linear(hidden_size, hidden_size)
-        self.relu2 = nn.ReLU()
-        self.batch_norm2 = nn.BatchNorm1d(hidden_size)
-        
-        self.fc3 = nn.Linear(hidden_size, hidden_size)
-        self.relu3 = nn.ReLU()
-        self.batch_norm3 = nn.BatchNorm1d(hidden_size)
-        
-        self.fc4 = nn.Linear(hidden_size, hidden_size)
-        self.relu4 = nn.ReLU()
-        self.batch_norm4 = nn.BatchNorm1d(hidden_size)
-        
-        self.fc5 = nn.Linear(hidden_size, output_size)
+        self.network = nn.Sequential(
+            nn.Linear(input_size, hidden_size),
+            nn.LeakyReLU(),
+
+            nn.Linear(hidden_size, hidden_size),
+            nn.LeakyReLU(),
+
+            nn.Linear(hidden_size, hidden_size),
+            nn.LeakyReLU(),
+
+            nn.Linear(hidden_size, hidden_size),
+            nn.LeakyReLU(),
+
+            nn.Linear(hidden_size, hidden_size),
+            nn.LeakyReLU(),
+
+            nn.Linear(hidden_size, hidden_size),
+            nn.LeakyReLU(),
+
+            nn.Linear(hidden_size, output_size),
+            nn.LeakyReLU()
+        )
 
     def forward(self, x):
-        x = self.fc1(x)
-        x = self.relu(x)
-        #x = self.batch_norm1(x)
-        
-        x = self.fc2(x)
-        x = self.relu2(x)
-        #x = self.batch_norm2(x)
-        
-        x = self.fc3(x)
-        x = self.relu3(x)
-        #x = self.batch_norm3(x)
-        
-        x = self.fc4(x)
-        x = self.relu4(x)
-        #x =self.batch_norm4(x)
-        
-        x = self.fc5(x)
-
-        return x
+        return self.network(x)
 
 
 class ConvolutionalNeuralNetwork(nn.Module):
     """Class for the convolutional neural network, sub-class of nn.Module
 
-        Structure based on leNet 5
+        Structure based on leNet-5
     """
     def __init__(self, image_size: int, channels: int):
         """_summary_
@@ -68,49 +55,28 @@ class ConvolutionalNeuralNetwork(nn.Module):
             channels (_type_): Channels in input, 1 for grayscale and 3 for RGB
         """
         super(ConvolutionalNeuralNetwork, self).__init__()
-        self.conv1 = nn.Conv2d(channels, image_size,
-                               kernel_size=5, stride=1, padding=1)
-        self.activate1 = nn.ReLU()
-        self.batch_norm1 = nn.BatchNorm2d(image_size)
-        self.pool1 = nn.MaxPool2d(kernel_size=(2, 2))
-        
-        self.conv2 = nn.Conv2d(image_size, image_size,
-                               kernel_size=5, stride=1, padding=1)
-        self.activate2 = nn.ReLU()
-        self.batch_norm2 = nn.BatchNorm2d(image_size)
-        self.pool2 = nn.MaxPool2d(kernel_size=(2, 2))
-        
-        self.flat = nn.Flatten(1, -1)
-        self.layer3 = nn.Linear(12544, 1028)
-        self.activate3 = nn.ReLU()
-        self.batch_norm3 = nn.BatchNorm1d(1028)
-        
-        self.layer4 = nn.Linear(1028, 64)
-        self.activate4 = nn.ReLU()
-        self.batch_norm4 = nn.BatchNorm1d(64)
-        
-        self.layer5 = nn.Linear(64, 1)
+
+        self.network = nn.Sequential(
+            nn.Conv2d(channels, image_size,
+                    kernel_size=8, stride=2, padding=1),
+            nn.LeakyReLU(),
+            nn.MaxPool2d(kernel_size=(5,5), stride=2, padding=1),
+
+            nn.Conv2d(image_size, image_size,
+                      kernel_size=8, stride=2, padding=1),
+            nn.LeakyReLU(),
+            nn.MaxPool2d(kernel_size=(5,5), stride=2, padding=1),
+
+            nn.Flatten(1,-1),
+            nn.Linear(256, 256),
+            nn.LeakyReLU(),
+
+            nn.Linear(256, 64),
+            nn.LeakyReLU(),
+
+            nn.Linear(64, 1),
+            nn.LeakyReLU()
+        )
 
     def forward(self, x):
-        x = self.conv1(x)
-        x = self.activate1(x)
-        #x = self.batch_norm1(x)
-        x = self.pool1(x)
-
-        x = self.conv2(x)
-        x = self.activate2(x)
-        #x = self.batch_norm2(x)
-        x = self.pool2(x)
-        
-        x = self.flat(x)
-        x = self.layer3(x)
-        x = self.activate3(x)
-        #x = self.batch_norm3(x)
-
-        x = self.layer4(x)
-        x = self.activate4(x)
-        #x = self.batch_norm4(x)
-        
-        x = self.layer5(x)
-
-        return x
+        return self.network(x)
