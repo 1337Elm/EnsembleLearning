@@ -64,17 +64,17 @@ def training_nn(n_epochs, batchsize, model, optimizer,
                                                                  i+batchsize])
                                        .squeeze()).item())
 
-        if epoch % 10 == 0:
-            print(f"NN Epoch {epoch}: loss: {np.average(loss_val)}")
-
+        if epoch % 20 == 0:
+            #print(f"NN Epoch {epoch}: loss: {np.average(loss_val)}")
+            pass
         if np.average(loss_val) <= tol:
-            print(f"Successfull model loss: {np.average(loss_val)}")
+            #print(f"Successfull model loss: {np.average(loss_val)}")
             return model, np.average(loss_val), \
                 loss_array[1:], loss_array_train
 
         if epoch > 50:
             if np.average(loss_val) > loss_array[-5]:
-                print(f"NN Validation error rising! {np.average(loss_val)}")
+                #print(f"NN Validation error rising! {np.average(loss_val)}")
                 return model, np.average(loss_val), \
                     loss_array[1:], loss_array_train
 
@@ -120,6 +120,7 @@ def training_cnn(n_epochs, batchsize, model, optimizer,
         for i in range(0, len(InputData), batchsize):
             X_batch = InputData[i:i + batchsize]
             y_pred = model(X_batch)
+
             loss = loss_fn(y_pred.squeeze(),
                            torch.flatten(OutputData[:, i:i+batchsize]))
 
@@ -139,23 +140,21 @@ def training_cnn(n_epochs, batchsize, model, optimizer,
                                                               i:i+batchsize])
                                     .squeeze()).item())
 
-        if epoch % 10 == 0:
-            print(f"CNN{model_name} Epoch {epoch}: \
-                  loss: {np.average(loss_val)}")
-
+        if epoch % 20 == 0:
+            #print(f"{model_name} Epoch {epoch} | loss: {np.average(loss_val)}")
+            pass
         if np.average(loss_val) <= tol:
-            print(f"Successfull model{model_name} \
-                  loss: {np.average(loss_val)}")
+            #print(f"Successfull model{model_name} loss: {np.average(loss_val)}")
             return model, np.average(loss_val), \
                 loss_array[1:], loss_array_train
 
+        """
         if epoch > 10:
             if np.average(loss_val) > loss_array[-5]:
-                print(f"CNN{model_name} Validation error rising! \
-                      {np.average(loss_val)}")
+                print(f"CNN{model_name} Validation error rising! {np.average(loss_val)}")
                 return model, np.average(loss_val), \
                     loss_array[1:], loss_array_train
-
+        """
         loss_array.append(np.average(loss_val))
 
     return model, np.average(loss_val), \
@@ -238,10 +237,10 @@ def training_mmnn(n_epochs, batchsize, nn1, nn2, cnn1,
                                     .squeeze()).item())
 
         if epoch % 10 == 0:
-            print(f"MNN Epoch {epoch}: loss: {np.average(loss_val)}")
-
+            #print(f"MNN Epoch {epoch}: loss: {np.average(loss_val)}")
+            pass
         if np.average(loss_val) <= tol:
-            print(f"Successfull model loss: {np.average(loss_val)}")
+            #print(f"Successfull model loss: {np.average(loss_val)}")
             torch.save(nn1.state_dict(), "./models/nn1.pth")
             torch.save(nn2.state_dict(), "./models/nn2.pth")
             torch.save(cnn1.state_dict(), "./models/cnn1.pth")
@@ -249,7 +248,7 @@ def training_mmnn(n_epochs, batchsize, nn1, nn2, cnn1,
 
         if epoch >= 5:
             if np.average(loss_val) > loss_array[-5]:
-                print(f"MNN Validation error rising! {np.average(loss_val)}")
+                #print(f"MNN Validation error rising! {np.average(loss_val)}")
                 torch.save(nn1.state_dict(), "./models/nn1.pth")
                 torch.save(nn2.state_dict(), "./models/nn2.pth")
                 torch.save(cnn1.state_dict(), "./models/cnn1.pth")

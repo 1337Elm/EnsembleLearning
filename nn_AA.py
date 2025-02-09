@@ -7,6 +7,8 @@ from utils import read_csv, split_data, import_pictures
 from training_testing_AA import training_cnn, training_nn, training_mmnn
 from plotting_AA import showcase_model, convergence_plot, statistics
 import matplotlib.pyplot as plt
+from sklearn.model_selection import KFold
+from torch.utils.data import DataLoader, TensorDataset
 
 
 def main():
@@ -14,7 +16,7 @@ def main():
     """
     # Initial data, to be determined
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-    print(torch.device("cuda:0" if torch.cuda.is_available() else "cpu"))
+    print(f"Running on device: {device}")
 
     folder_nameXY = "./Pictures/2024-04-03/xy/"
     folder_nameXZ = "./Pictures/2024-04-03/xz/"
@@ -31,8 +33,8 @@ def main():
     input_sizeFinal, hidden_sizeFinal, output_sizeFinal = 2, 8, 1
 
     # General training parameters
-    batchsize, batchsize_cnn, n_epochs, tol = 32, 16, 1000, 1e-3
-
+    batchsize, batchsize_cnn, n_epochs, tol = 32, 16, 200, 1e-3
+    n_epochs_cnn = 100
     # Test/Training split
     split, validation_split = 0.8, 0.9
 
@@ -46,8 +48,8 @@ def main():
     loss_fn = [nn.MSELoss(), nn.MSELoss()]
 
     # Optimizers for the networks
-    optimizer = [optim.Adam(nn1.parameters(), lr=0.001),
-                 optim.Adam(nnFinal.parameters(), lr=0.001)]
+    optimizer = [optim.Adam(nn1.parameters(), lr=0.001, weight_decay=1e-6),
+                 optim.Adam(nnFinal.parameters(), lr=0.001, weight_decay=1e-6)]
 
     # Parse data from file
     matrixInput, C_d_vector = read_csv(filename_data)
@@ -56,92 +58,119 @@ def main():
 
     X_train, X_test, Y_train, Y_test = split_data(matrixInput.transpose(),
                                                   C_d_vector, split)
-    X_train_train, X_validation, Y_train_train, Y_validation = split_data(
-                                        X_train, Y_train, validation_split)
 
-    X_train_train_tensor = torch.tensor(X_train_train,
+    n_splits = 10
+    kf = KFold(n_splits=n_splits, shuffle=True, random_state=42)
+    fold = 0
+    for i,(train_indx, val_indx) in enumerate(kf.split(X_train)):
+       
+        print(f"Fold [{i+1}/{n_splits}]")
+        X_train_train_tensor, X_validation_tensor = torch.tensor(X_train[train_indx], dtype=torch.float32).to(device),\
+                            torch.tensor(X_train[val_indx], dtype=torch.float32).to(device)
+        Y_train_train_tensor, Y_validation_tensor = torch.tensor(Y_train[train_indx], dtype=torch.float32).to(device),\
+                            torch.tensor(Y_train[val_indx], dtype=torch.float32).to(device)
+        
+        Y_train_train = Y_train[train_indx]
+        Y_validation = Y_train[val_indx]
+
+
+    
+        """    
+        X_train_train, X_validation, Y_train_train, Y_validation = split_data(
+                                            X_train, Y_train, validation_split)
+
+        X_train_train_tensor = torch.tensor(X_train_train,
+                                            dtype=torch.float32).to(device)
+        X_validation_tensor = torch.tensor(X_validation,
                                         dtype=torch.float32).to(device)
-    X_validation_tensor = torch.tensor(X_validation,
-                                       dtype=torch.float32).to(device)
 
-    Y_train_train_tensor = torch.tensor(Y_train_train,
+        Y_train_train_tensor = torch.tensor(Y_train_train,
+                                            dtype=torch.float32).to(device)
+        Y_validation_tensor = torch.tensor(Y_validation,
                                         dtype=torch.float32).to(device)
-    Y_validation_tensor = torch.tensor(Y_validation,
-                                       dtype=torch.float32).to(device)
+        """
 
-    X_test_tensor = torch.tensor(X_test,
-                                 dtype=torch.float32).to(device)
-    Y_test_tensor = torch.tensor(Y_test,
-                                 dtype=torch.float32).to(device)
+        X_test_tensor = torch.tensor(X_test,
+                                    dtype=torch.float32).to(device)
+        Y_test_tensor = torch.tensor(Y_test,
+                                    dtype=torch.float32).to(device)
+        
 
-    nn_model, model_loss, \
-        loss_array, loss_array_train = training_nn(n_epochs,
-                                                   batchsize, nn1,
-                                                   optimizer[0], loss_fn,
-                                                   X_train_train_tensor,
-                                                   Y_train_train_tensor,
-                                                   X_validation_tensor,
-                                                   Y_validation_tensor, tol)
+        nn_model, model_loss, \
+            loss_array, loss_array_train = training_nn(n_epochs,
+                                                    batchsize, nn1,
+                                                    optimizer[0], loss_fn,
+                                                    X_train_train_tensor,
+                                                    Y_train_train_tensor,
+                                                    X_validation_tensor,
+                                                    Y_validation_tensor, tol)
 
-    # Train CNN with the error from NN
-    diff_train = torch.tensor(np.array([Y_train_train -
-                                        nn_model(X_train_train_tensor)
-                                        .cpu().detach().numpy().squeeze()]),
-                              dtype=torch.float32).to(device)
-    diff_validation = torch.tensor(np.array([Y_validation -
-                                             nn_model(X_validation_tensor)
-                                             .cpu().detach()
-                                             .numpy().squeeze()]),
-                                   dtype=torch.float32).to(device)
+        # Train CNN with the error from NN
+        diff_train = torch.tensor(np.array([Y_train_train -
+                                            nn_model(X_train_train_tensor)
+                                            .cpu().detach().numpy().squeeze()]),
+                                dtype=torch.float32).to(device)
+        diff_validation = torch.tensor(np.array([Y_validation -
+                                                nn_model(X_validation_tensor)
+                                                .cpu().detach()
+                                                .numpy().squeeze()]),
+                                    dtype=torch.float32).to(device)
 
-    cnn_AA = ConvolutionalNeuralNetwork(image_size, channels)
+        cnn_AA = ConvolutionalNeuralNetwork(image_size, channels)
 
-    loss_fn_cnn_AA = nn.MSELoss()
-    optimizer_cnn_AA = optim.Adam(cnn_AA.parameters(), lr=0.001)
+        loss_fn_cnn_AA = nn.MSELoss()
+        optimizer_cnn_AA = optim.Adam(cnn_AA.parameters(), lr=0.001, weight_decay=1e-6)
 
-    data_AA = np.array(import_pictures([folder_nameXY,
-                                        folder_nameXZ, folder_nameYZ]))
+        data_AA = np.array(import_pictures([folder_nameXY,
+                                            folder_nameXZ, folder_nameYZ]))
 
-    data_tensor_AA = torch.tensor(data_AA, dtype=torch.float32).to(device)
+        data_tensor_AA = torch.tensor(data_AA, dtype=torch.float32).to(device)
 
-    X_train_AA, X_test_AA, \
-        Y_train_AA, Y_test_AA = split_data(data_tensor_AA,
-                                           torch.tensor(C_d_vector,
-                                                        dtype=torch.float32),
-                                           split)
+        X_train_AA, X_test_AA, \
+            Y_train_AA, Y_test_AA = split_data(data_AA,
+                                                C_d_vector,
+                                                split)
+        
+        X_test_AA = torch.tensor(X_test_AA, dtype=torch.float32).to(device)
+        Y_test_AA = torch.tensor(Y_test_AA, dtype=torch.float32).to(device)
 
-    X_train_train_AA, X_validation_AA, \
-        Y_train_train_AA, Y_validation_AA = split_data(X_train_AA,
-                                                       Y_train_AA,
-                                                       validation_split)
+        #X_train_train_AA, X_validation_AA, \
+        #    Y_train_train_AA, Y_validation_AA = split_data(X_train_AA,
+        #                                                Y_train_AA,
+        #                                                validation_split)
 
-    cnn_model_AA, cnn_mod_AA_loss, \
-        cnn_mod_loss_array, \
-        cnn_loss_array_train_AA = training_cnn(n_epochs,
-                                               batchsize_cnn,
-                                               cnn_AA, optimizer_cnn_AA,
-                                               loss_fn_cnn_AA,
-                                               X_train_train_AA,
-                                               diff_train,
-                                               tol, X_validation_AA,
-                                               diff_validation, "CNNAA")
+        X_train_train_AA, X_validation_AA = torch.tensor(X_train_AA[train_indx], dtype=torch.float32).to(device),\
+                            torch.tensor(X_train_AA[val_indx], dtype=torch.float32).to(device)
+        Y_train_train_AA, Y_validation_AA = torch.tensor(Y_train_AA[train_indx], dtype=torch.float32).to(device),\
+                            torch.tensor(Y_train_AA[val_indx], dtype=torch.float32).to(device)
 
-    # Train meta network
-    mnn, mnn_loss_array, \
-        mnn_loss_array_train = training_mmnn(n_epochs, batchsize, nn_model,
-                                             nnFinal, cnn_model_AA,
-                                             optimizer[-1], loss_fn[-1],
-                                             [X_train_train_tensor,
-                                              X_train_train_AA],
-                                             Y_train_train_tensor,
-                                             [X_validation_tensor,
-                                              X_validation_AA],
-                                             Y_validation_tensor, tol)
+        cnn_model_AA, cnn_mod_AA_loss, \
+            cnn_mod_loss_array, \
+            cnn_loss_array_train_AA = training_cnn(n_epochs_cnn,
+                                                batchsize_cnn,
+                                                cnn_AA, optimizer_cnn_AA,
+                                                loss_fn_cnn_AA,
+                                                X_train_train_AA,
+                                                diff_train,
+                                                tol, X_validation_AA,
+                                                diff_validation, "CNNAA")
 
-    # Print statistical metrics for all networks
-    statistics(nn_model, X_test_tensor, Y_test_tensor, "NN")
-    statistics(cnn_model_AA, X_test_AA, Y_test_AA, "CNN")
-    statistics(mnn, [X_test_tensor, X_test_AA], Y_test_tensor, "MNN")
+        # Train meta network
+        mnn, mnn_loss_array, \
+            mnn_loss_array_train = training_mmnn(n_epochs, batchsize, nn_model,
+                                                nnFinal, cnn_model_AA,
+                                                optimizer[-1], loss_fn[-1],
+                                                [X_train_train_tensor,
+                                                X_train_train_AA],
+                                                Y_train_train_tensor,
+                                                [X_validation_tensor,
+                                                X_validation_AA],
+                                                Y_validation_tensor, tol)
+
+        # Print statistical metrics for all networks
+        statistics(nn_model, X_test_tensor, Y_test_tensor, "NN")
+        statistics(cnn_model_AA, X_test_AA, Y_test_AA, "CNN")
+        statistics(mnn, [X_test_tensor, X_test_AA], Y_test_tensor, "MNN")
 
     # Create plots for network models
     fig1, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(8, 6), sharey=False)
