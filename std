@@ -1,0 +1,352 @@
+[2024-04-19 12:21:00][INFO] Created logfile `std'
+[2024-04-19 12:21:00][INFO] ===================================================
+[2024-04-19 12:21:00][INFO]  IBOFlow release/test-python-release - daba6f96e
+[2024-04-19 12:21:00][INFO]  IBOFlow core version: 1.25.1.0
+[2024-04-19 12:21:00][INFO]  IBOFlow IPS version: 24.1.0.212
+[2024-04-19 12:21:00][INFO]  
+[2024-04-19 12:21:00][INFO] ===================================================
+[2024-04-19 12:21:00][INFO]   Material id                   : 0
+  Material density              : 2700
+  Material viscosity              : 0
+  Material ThermalAlpha         : 0
+  Material ThermalConductivity  : 0, 0, 0
+  Material ThermalCp            : 1000
+  Material Emissivity    		: 0
+  Material PhaseChange            : 0
+
+[2024-04-19 12:21:00][INFO] Type TriMesh
+[2024-04-19 12:21:00][INFO] Number of Triangles 3360
+[2024-04-19 12:21:00][INFO] Trimesh Type: TYPE_VOLUME
+[2024-04-19 12:21:00][INFO] ImmersedBoundary id 0
+[2024-04-19 12:21:00][INFO] AngularVelocity 0.000000, 0.000000, 0.000000
+[2024-04-19 12:21:00][INFO] Position 0.000000, 0.000000, 0.000000
+[2024-04-19 12:21:00][INFO] FluidPosition 0.000000, 0.000000, 0.000000
+[2024-04-19 12:21:00][INFO] PositionOld 0.000000, 0.000000, 0.000000
+[2024-04-19 12:21:00][INFO] Normal 0.000000, 0.000000, 1.000000
+[2024-04-19 12:21:00][INFO] BoundaryConditionId 6Pointer 0x176313664c0
+[2024-04-19 12:21:00][INFO] FluidHeatingPower 0.000000e+00 [W] SolidHeatingPower 0.000000e+00 [W]
+[2024-04-19 12:21:00][INFO] FluidHeatingPowerDensity 0.000000e+00 [W/m^3] SolidHeatingPowerDensity 0.000000e+00 [W/m^3]
+[2024-04-19 12:21:00][INFO]   BC id		: 6
+  BC pointer: 00000176313664C0
+  FluidType	: 2
+  ThermalType	: 1
+  Pressure	: 0
+  Temperature	: 293
+  Velocity      : 0, 0, 0
+  FluidHeatTransferCoefficient	: 0
+  SolidHeatTransferCoefficient	: 0
+  FluidHeatingPower	: 0
+  SolidHeatingPower	: 0
+  FluidHeatingPowerDensity	: 0
+  SolidHeatingPowerDensity	: 0
+  LossCoefficient : 0
+  Permeability	: 0
+  Porosity      : 1
+  FanDirection  : 0, 0, 0
+  FanArea		: 1
+  FanRPM  : 0
+  FanSwirlMagnitude  : 0.05
+  FanUnderRelaxation  : 1
+  PolarVelocity	: 0, 0, 0
+  Ref. level FLUID	: 1
+  Ref.length FLUID	: 0.0015
+  Narrow channel level FLUID	: 0
+  Narrow channel min cells FLUID	: 0
+  Ref. level CEM	: 0
+  Ref.length CEM	: 0
+  Narrow channel level CEM	: 0
+  Narrow channel min cells CEM	: 0
+  RadiationActive	: 1
+  ExteriorBC : 0
+  LowerBound : inf, inf, inf
+  UpperBound : -inf, -inf, -inf
+  Normal	 : 0, 0, 1
+  VelocityDirection : 0, 0, 0
+
+
+[2024-04-19 12:21:00][INFO] MaterialId 0 Pointer 0x176338f9250
+[2024-04-19 12:21:00][INFO]  
+[2024-04-19 12:21:00][INFO] Building initial grid...
+[2024-04-19 12:21:00][INFO] Number of fluid cells 16000
+[2024-04-19 12:21:00][INFO] Initial grid complete.
+[2024-04-19 12:21:00][INFO] Building grid...
+[2024-04-19 12:21:00][INFO]  
+[2024-04-19 12:21:00][INFO] New adaptive time: Fluid dt 5.000000e-03 IB dt 1.000000e+03 Proposed new dt 1.000000e+00.
+[2024-04-19 12:21:00][INFO] New number of fluid cells 16000
+[2024-04-19 12:21:00][INFO] New number of fluid nodes 18081
+[2024-04-19 12:21:00][INFO] Update IB 0...
+[2024-04-19 12:21:00][INFO] Generating RTree...
+[2024-04-19 12:21:00][INFO] Added 7168 points for searching to IB 0
+[2024-04-19 12:21:00][INFO] done.
+[2024-04-19 12:21:00][INFO] done.
+[2024-04-19 12:21:00][DBG2] Num coarsen cells 0  numRefinedCells 568
+[2024-04-19 12:21:00][INFO] New number of fluid cells 19976
+[2024-04-19 12:21:00][INFO] New number of fluid nodes 22821
+[2024-04-19 12:21:00][DBG2] Num coarsen cells 0  numRefinedCells 0
+[2024-04-19 12:21:00][INFO] Init solutions
+[2024-04-19 12:21:00][INFO] Connecting fluid cells...
+[2024-04-19 12:21:00][INFO] done.
+[2024-04-19 12:21:00][INFO] Done
+[2024-04-19 12:21:00][INFO] Level = 0 ib = 0
+[2024-04-19 12:21:00][INFO] Running TriMeshImmersedBoundary::SetIBGridTypes... 
+[2024-04-19 12:21:00][INFO] Done
+[2024-04-19 12:21:00][INFO] Find intersecting cells...
+[2024-04-19 12:21:00][INFO] done. Collecting data...
+[2024-04-19 12:21:00][INFO] done.
+[2024-04-19 12:21:00][INFO] Find closest point in triangulation...
+[2024-04-19 12:21:00][INFO] done.
+[2024-04-19 12:21:00][INFO] 	SetCellsIntersectingPatches
+[2024-04-19 12:21:00][INFO] 	done!
+[2024-04-19 12:21:00][DBG ] starting ImmersedBoundaries::RemoveIsolatedAirPockets
+[2024-04-19 12:21:00][INFO]  # fluid cells converted to IB cells: 0
+[2024-04-19 12:21:00][INFO]  # Num extrapolation cells changed 0 loops 0
+[2024-04-19 12:21:00][INFO]  # Match interior faces loop 1
+[2024-04-19 12:21:00][INFO]  # Mirror or weakly connected cells changed 16 loops 2 ioNumCalls 0
+[2024-04-19 12:21:00][INFO]  # Remove isolated air pockets...
+[2024-04-19 12:21:00][DBG ] starting ImmersedBoundaries::RemoveIsolatedAirPockets
+[2024-04-19 12:21:00][INFO]  # fluid cells converted to IB cells: 0
+[2024-04-19 12:21:00][INFO]  # done
+[2024-04-19 12:21:00][INFO] Match interior faces
+[2024-04-19 12:21:00][INFO] done
+[2024-04-19 12:21:00][INFO]  # Num extrapolation cells changed 0 loops 0
+[2024-04-19 12:21:00][INFO] Intpol to nodes NEW_SOL...
+[2024-04-19 12:21:00][INFO] done.
+[2024-04-19 12:21:00][INFO] Intpol to nodes OLD_SOL...
+[2024-04-19 12:21:00][INFO] done.
+[2024-04-19 12:21:00][INFO] Updating Active cells
+[2024-04-19 12:21:00][INFO] done.
+[2024-04-19 12:21:00][INFO] Number of active cells 19976
+[2024-04-19 12:21:00][DBG ] starting ImmersedBoundaries::RemoveIsolatedAirPockets
+[2024-04-19 12:21:00][INFO]  # fluid cells converted to IB cells: 0
+[2024-04-19 12:21:00][INFO] Building grid finalized.
+[2024-04-19 12:21:00][INFO] Number of active 19976 and total 19976 fluid cells
+[2024-04-19 12:21:00][INFO] Initial adaptive steady state relax estimated to 2.500000e-04 
+[2024-04-19 12:21:00][ERR ] No available solver with id 'amgx' was found.
+[2024-04-19 12:21:00][WARN] WARNING: Sparse linear algebra solver could not be created MomentumSolver. Creating backup solver
+[2024-04-19 12:21:00][INFO] Created solver: MomentumSolver mkl 2020.0.4 (gmres, double, ilu0) 
+[2024-04-19 12:21:00][ERR ] No available solver with id 'amgx' was found.
+[2024-04-19 12:21:00][WARN] WARNING: Sparse linear algebra solver could not be created PressureSolver. Creating backup solver
+[2024-04-19 12:21:00][INFO] Created solver: PressureSolver mkl 2020.0.4 (pardiso, double, default) 
+[2024-04-19 12:21:00][DBG ] Set pressure matrix
+[2024-04-19 12:21:00][INFO] SteadyStateRelax 2.500000e-04 AdaptiveSteadyStateRelax 1.690650e-02
+[2024-04-19 12:21:00][INFO]    Solver it: 0 Solver Error: 5.522591966e-07 Relative Solver Error: 2.145413526e-02 Max Solver Error: 6.640872429e-01
+[2024-04-19 12:21:00][INFO]    MaxRes 1.000000e+00 MomRes [0.000000e+00,0.000000e+00,0.000000e+00] ContRes 1.000000e+00
+[2024-04-19 12:21:00][INFO] Max res 1.000000e+00 Max res crit 1.000000e-03
+[2024-04-19 12:21:00][INFO] Steady state it 1 Max res crit 1.000000e-03 Max res 1.000000e+00 
+[2024-04-19 12:21:00][INFO] SteadyStateRelax 2.500000e-04 AdaptiveSteadyStateRelax 1.188515e-02
+[2024-04-19 12:21:00][INFO]    Solver it: 1 Solver Error: 4.658507704e-07 Relative Solver Error: 1.335623737e-02 Max Solver Error: 7.526956123e-01
+[2024-04-19 12:21:00][INFO]    MaxRes 4.205855e+01 MomRes [4.205855e+01,1.999244e+00,3.807255e+00] ContRes 9.965875e-01
+[2024-04-19 12:21:00][INFO] Max res 4.205855e+01 Max res crit 1.000000e-03
+[2024-04-19 12:21:00][INFO] Steady state it 2 Max res crit 1.000000e-03 Max res 4.205855e+01 
+[2024-04-19 12:21:00][DBG ] Set pressure matrix
+[2024-04-19 12:21:01][INFO] SteadyStateRelax 2.500000e-03 AdaptiveSteadyStateRelax 1.219545e-02
+[2024-04-19 12:21:01][INFO]    Solver it: 2 Solver Error: 5.770743195e-07 Relative Solver Error: 3.035081055e-02 Max Solver Error: 3.777171680e+00
+[2024-04-19 12:21:01][INFO]    MaxRes 5.026391e-01 MomRes [5.026391e-01,4.667576e-02,4.485824e-02] ContRes 5.103244e-03
+[2024-04-19 12:21:01][INFO] Max res 5.026391e-01 Max res crit 1.000000e-03
+[2024-04-19 12:21:01][INFO] Steady state it 3 Max res crit 1.000000e-03 Max res 5.026391e-01 
+[2024-04-19 12:21:01][DBG ] Set pressure matrix
+[2024-04-19 12:21:01][INFO] SteadyStateRelax 1.219545e-02 AdaptiveSteadyStateRelax 5.753439e-03
+[2024-04-19 12:21:01][INFO]    Solver it: 3 Solver Error: 7.398584591e-07 Relative Solver Error: 2.116381024e-02 Max Solver Error: 3.262930467e+00
+[2024-04-19 12:21:01][INFO]    MaxRes 4.458003e-01 MomRes [4.458003e-01,2.689741e-01,4.316614e-01] ContRes 6.959003e-04
+[2024-04-19 12:21:01][INFO] Max res 4.458003e-01 Max res crit 1.000000e-03
+[2024-04-19 12:21:01][INFO] Steady state it 4 Max res crit 1.000000e-03 Max res 4.458003e-01 
+[2024-04-19 12:21:01][DBG ] Set pressure matrix
+[2024-04-19 12:21:01][INFO] SteadyStateRelax 5.753439e-03 AdaptiveSteadyStateRelax 1.317051e-02
+[2024-04-19 12:21:01][INFO]    Solver it: 4 Solver Error: 4.343750730e-07 Relative Solver Error: 1.183943001e-02 Max Solver Error: 1.197217372e+00
+[2024-04-19 12:21:01][INFO]    MaxRes 7.332156e-01 MomRes [7.332156e-01,4.988783e-01,6.898561e-01] ContRes 2.000921e-03
+[2024-04-19 12:21:01][INFO] Max res 7.332156e-01 Max res crit 1.000000e-03
+[2024-04-19 12:21:01][INFO] Steady state it 5 Max res crit 1.000000e-03 Max res 7.332156e-01 
+[2024-04-19 12:21:01][DBG ] Set pressure matrix
+[2024-04-19 12:21:01][INFO] SteadyStateRelax 1.317051e-02 AdaptiveSteadyStateRelax 1.340651e-02
+[2024-04-19 12:21:01][INFO]    Solver it: 5 Solver Error: 3.748863540e-07 Relative Solver Error: 1.036095204e-02 Max Solver Error: 2.220817177e+00
+[2024-04-19 12:21:01][INFO]    MaxRes 6.211103e-01 MomRes [6.211103e-01,3.326923e-01,5.595116e-01] ContRes 4.642897e-05
+[2024-04-19 12:21:01][INFO] Max res 6.211103e-01 Max res crit 1.000000e-03
+[2024-04-19 12:21:01][INFO] Steady state it 6 Max res crit 1.000000e-03 Max res 6.211103e-01 
+[2024-04-19 12:21:01][INFO] SteadyStateRelax 1.317051e-02 AdaptiveSteadyStateRelax 1.803701e-02
+[2024-04-19 12:21:01][INFO]    Solver it: 6 Solver Error: 2.812694247e-07 Relative Solver Error: 7.624273630e-03 Max Solver Error: 1.455151597e+00
+[2024-04-19 12:21:01][INFO]    MaxRes 6.987318e-01 MomRes [6.627190e-01,5.093872e-01,6.987318e-01] ContRes 1.449614e-04
+[2024-04-19 12:21:01][INFO] Max res 6.987318e-01 Max res crit 1.000000e-03
+[2024-04-19 12:21:01][INFO] Steady state it 7 Max res crit 1.000000e-03 Max res 6.987318e-01 
+[2024-04-19 12:21:01][INFO] SteadyStateRelax 1.317051e-02 AdaptiveSteadyStateRelax 1.972210e-02
+[2024-04-19 12:21:01][INFO]    Solver it: 7 Solver Error: 2.132487472e-07 Relative Solver Error: 5.834965569e-03 Max Solver Error: 1.077648103e+00
+[2024-04-19 12:21:01][INFO]    MaxRes 6.571213e-01 MomRes [6.479230e-01,4.609145e-01,6.571213e-01] ContRes 1.639596e-04
+[2024-04-19 12:21:01][INFO] Max res 6.571213e-01 Max res crit 1.000000e-03
+[2024-04-19 12:21:01][INFO] Steady state it 8 Max res crit 1.000000e-03 Max res 6.571213e-01 
+[2024-04-19 12:21:01][INFO] SteadyStateRelax 1.317051e-02 AdaptiveSteadyStateRelax 1.948906e-02
+[2024-04-19 12:21:01][INFO]    Solver it: 8 Solver Error: 1.650732606e-07 Relative Solver Error: 4.604347620e-03 Max Solver Error: 8.182168875e-01
+[2024-04-19 12:21:01][INFO]    MaxRes 6.098776e-01 MomRes [6.098776e-01,4.170763e-01,5.971242e-01] ContRes 1.665224e-04
+[2024-04-19 12:21:01][INFO] Max res 6.098776e-01 Max res crit 1.000000e-03
+[2024-04-19 12:21:01][INFO] Steady state it 9 Max res crit 1.000000e-03 Max res 6.098776e-01 
+[2024-04-19 12:21:01][INFO] SteadyStateRelax 1.317051e-02 AdaptiveSteadyStateRelax 1.956805e-02
+[2024-04-19 12:21:01][INFO]    Solver it: 9 Solver Error: 1.287737132e-07 Relative Solver Error: 3.657312507e-03 Max Solver Error: 6.502087864e-01
+[2024-04-19 12:21:01][INFO]    MaxRes 5.457902e-01 MomRes [5.457902e-01,3.654361e-01,5.226618e-01] ContRes 1.474811e-04
+[2024-04-19 12:21:01][INFO] Max res 5.457902e-01 Max res crit 1.000000e-03
+[2024-04-19 12:21:01][INFO] Steady state it 10 Max res crit 1.000000e-03 Max res 5.457902e-01 
+[2024-04-19 12:21:01][INFO] SteadyStateRelax 1.317051e-02 AdaptiveSteadyStateRelax 1.984077e-02
+[2024-04-19 12:21:01][INFO]    Solver it: 10 Solver Error: 1.008662520e-07 Relative Solver Error: 2.892947717e-03 Max Solver Error: 5.197281816e-01
+[2024-04-19 12:21:01][INFO]    MaxRes 4.546839e-01 MomRes [4.546839e-01,3.031651e-01,4.289740e-01] ContRes 1.232388e-04
+[2024-04-19 12:21:01][INFO] Max res 4.546839e-01 Max res crit 1.000000e-03
+[2024-04-19 12:21:01][INFO] Steady state it 11 Max res crit 1.000000e-03 Max res 4.546839e-01 
+[2024-04-19 12:21:02][INFO] SteadyStateRelax 1.317051e-02 AdaptiveSteadyStateRelax 2.023048e-02
+[2024-04-19 12:21:02][INFO]    Solver it: 11 Solver Error: 7.919485753e-08 Relative Solver Error: 2.299512851e-03 Max Solver Error: 4.134966130e-01
+[2024-04-19 12:21:02][INFO]    MaxRes 3.529316e-01 MomRes [3.529316e-01,2.376482e-01,3.293992e-01] ContRes 1.003976e-04
+[2024-04-19 12:21:02][INFO] Max res 3.529316e-01 Max res crit 1.000000e-03
+[2024-04-19 12:21:02][INFO] Steady state it 12 Max res crit 1.000000e-03 Max res 3.529316e-01 
+[2024-04-19 12:21:02][INFO] SteadyStateRelax 1.317051e-02 AdaptiveSteadyStateRelax 2.068187e-02
+[2024-04-19 12:21:02][INFO]    Solver it: 12 Solver Error: 6.227360504e-08 Relative Solver Error: 1.831335653e-03 Max Solver Error: 3.278367371e-01
+[2024-04-19 12:21:02][INFO]    MaxRes 2.659305e-01 MomRes [2.659305e-01,1.779462e-01,2.391537e-01] ContRes 8.098879e-05
+[2024-04-19 12:21:02][INFO] Max res 2.659305e-01 Max res crit 1.000000e-03
+[2024-04-19 12:21:02][INFO] Steady state it 13 Max res crit 1.000000e-03 Max res 2.659305e-01 
+[2024-04-19 12:21:02][INFO] SteadyStateRelax 1.317051e-02 AdaptiveSteadyStateRelax 2.115385e-02
+[2024-04-19 12:21:02][INFO]    Solver it: 13 Solver Error: 4.900331603e-08 Relative Solver Error: 1.460857852e-03 Max Solver Error: 2.615361938e-01
+[2024-04-19 12:21:02][INFO]    MaxRes 2.020886e-01 MomRes [2.020886e-01,1.334169e-01,1.703627e-01] ContRes 6.518942e-05
+[2024-04-19 12:21:02][INFO] Max res 2.020886e-01 Max res crit 1.000000e-03
+[2024-04-19 12:21:02][INFO] Steady state it 14 Max res crit 1.000000e-03 Max res 2.020886e-01 
+[2024-04-19 12:21:02][INFO] SteadyStateRelax 1.317051e-02 AdaptiveSteadyStateRelax 2.161663e-02
+[2024-04-19 12:21:02][INFO]    Solver it: 14 Solver Error: 3.857998575e-08 Relative Solver Error: 1.169052075e-03 Max Solver Error: 2.105369286e-01
+[2024-04-19 12:21:02][INFO]    MaxRes 1.531890e-01 MomRes [1.531890e-01,9.973530e-02,1.215438e-01] ContRes 5.249365e-05
+[2024-04-19 12:21:02][INFO] Max res 1.531890e-01 Max res crit 1.000000e-03
+[2024-04-19 12:21:02][INFO] Steady state it 15 Max res crit 1.000000e-03 Max res 1.531890e-01 
+[2024-04-19 12:21:02][INFO] SteadyStateRelax 1.317051e-02 AdaptiveSteadyStateRelax 2.204997e-02
+[2024-04-19 12:21:02][INFO]    Solver it: 15 Solver Error: 3.040267976e-08 Relative Solver Error: 9.383076577e-04 Max Solver Error: 1.694991520e-01
+[2024-04-19 12:21:02][INFO]    MaxRes 1.161925e-01 MomRes [1.161925e-01,7.467648e-02,8.855546e-02] ContRes 4.228083e-05
+[2024-04-19 12:21:02][INFO] Max res 1.161925e-01 Max res crit 1.000000e-03
+[2024-04-19 12:21:02][INFO] Steady state it 16 Max res crit 1.000000e-03 Max res 1.161925e-01 
+[2024-04-19 12:21:02][INFO] SteadyStateRelax 1.317051e-02 AdaptiveSteadyStateRelax 2.243962e-02
+[2024-04-19 12:21:02][INFO]    Solver it: 16 Solver Error: 2.398337518e-08 Relative Solver Error: 7.542197557e-04 Max Solver Error: 1.364989864e-01
+[2024-04-19 12:21:02][INFO]    MaxRes 8.869803e-02 MomRes [8.869803e-02,5.636553e-02,6.620576e-02] ContRes 3.400531e-05
+[2024-04-19 12:21:02][INFO] Max res 8.869803e-02 Max res crit 1.000000e-03
+[2024-04-19 12:21:02][INFO] Steady state it 17 Max res crit 1.000000e-03 Max res 8.869803e-02 
+[2024-04-19 12:21:02][INFO] SteadyStateRelax 1.317051e-02 AdaptiveSteadyStateRelax 2.278114e-02
+[2024-04-19 12:21:02][INFO]    Solver it: 17 Solver Error: 1.894226520e-08 Relative Solver Error: 6.075539859e-04 Max Solver Error: 1.099600219e-01
+[2024-04-19 12:21:02][INFO]    MaxRes 6.820209e-02 MomRes [6.820209e-02,4.306122e-02,5.051183e-02] ContRes 2.726988e-05
+[2024-04-19 12:21:02][INFO] Max res 6.820209e-02 Max res crit 1.000000e-03
+[2024-04-19 12:21:02][INFO] Steady state it 18 Max res crit 1.000000e-03 Max res 6.820209e-02 
+[2024-04-19 12:21:02][INFO] SteadyStateRelax 1.317051e-02 AdaptiveSteadyStateRelax 2.307524e-02
+[2024-04-19 12:21:02][INFO]    Solver it: 18 Solver Error: 1.498385558e-08 Relative Solver Error: 4.893682491e-04 Max Solver Error: 8.860710129e-02
+[2024-04-19 12:21:02][INFO]    MaxRes 5.273434e-02 MomRes [5.273434e-02,3.316976e-02,3.887286e-02] ContRes 2.177467e-05
+[2024-04-19 12:21:02][INFO] Max res 5.273434e-02 Max res crit 1.000000e-03
+[2024-04-19 12:21:02][INFO] Steady state it 19 Max res crit 1.000000e-03 Max res 5.273434e-02 
+[2024-04-19 12:21:02][INFO] SteadyStateRelax 1.317051e-02 AdaptiveSteadyStateRelax 2.332307e-02
+[2024-04-19 12:21:02][INFO]    Solver it: 19 Solver Error: 1.187245433e-08 Relative Solver Error: 3.945228947e-04 Max Solver Error: 7.141671242e-02
+[2024-04-19 12:21:02][INFO]    MaxRes 4.091608e-02 MomRes [4.091608e-02,2.571064e-02,3.009166e-02] ContRes 1.730513e-05
+[2024-04-19 12:21:02][INFO] Max res 4.091608e-02 Max res crit 1.000000e-03
+[2024-04-19 12:21:02][INFO] Steady state it 20 Max res crit 1.000000e-03 Max res 4.091608e-02 
+[2024-04-19 12:21:02][INFO] SteadyStateRelax 1.317051e-02 AdaptiveSteadyStateRelax 2.352794e-02
+[2024-04-19 12:21:02][INFO]    Solver it: 20 Solver Error: 9.421695194e-09 Relative Solver Error: 3.178983984e-04 Max Solver Error: 5.756962645e-02
+[2024-04-19 12:21:02][INFO]    MaxRes 3.183280e-02 MomRes [3.183280e-02,2.003935e-02,2.341014e-02] ContRes 1.368397e-05
+[2024-04-19 12:21:02][INFO] Max res 3.183280e-02 Max res crit 1.000000e-03
+[2024-04-19 12:21:02][INFO] Steady state it 21 Max res crit 1.000000e-03 Max res 3.183280e-02 
+[2024-04-19 12:21:02][INFO] SteadyStateRelax 1.317051e-02 AdaptiveSteadyStateRelax 2.369435e-02
+[2024-04-19 12:21:02][INFO]    Solver it: 21 Solver Error: 7.488215329e-09 Relative Solver Error: 2.557530393e-04 Max Solver Error: 4.640944326e-02
+[2024-04-19 12:21:02][INFO]    MaxRes 2.482455e-02 MomRes [2.482455e-02,1.570219e-02,1.827266e-02] ContRes 1.077093e-05
+[2024-04-19 12:21:02][INFO] Max res 2.482455e-02 Max res crit 1.000000e-03
+[2024-04-19 12:21:02][INFO] Steady state it 22 Max res crit 1.000000e-03 Max res 2.482455e-02 
+[2024-04-19 12:21:02][INFO] SteadyStateRelax 1.317051e-02 AdaptiveSteadyStateRelax 2.382733e-02
+[2024-04-19 12:21:02][INFO]    Solver it: 22 Solver Error: 5.960141591e-09 Relative Solver Error: 2.056334424e-04 Max Solver Error: 3.741092195e-02
+[2024-04-19 12:21:02][INFO]    MaxRes 1.945537e-02 MomRes [1.945537e-02,1.236137e-02,1.430114e-02] ContRes 8.446035e-06
+[2024-04-19 12:21:02][INFO] Max res 1.945537e-02 Max res crit 1.000000e-03
+[2024-04-19 12:21:02][INFO] Steady state it 23 Max res crit 1.000000e-03 Max res 1.945537e-02 
+[2024-04-19 12:21:02][INFO] SteadyStateRelax 1.317051e-02 AdaptiveSteadyStateRelax 2.393196e-02
+[2024-04-19 12:21:02][INFO]    Solver it: 23 Solver Error: 4.750438708e-09 Relative Solver Error: 1.653473840e-04 Max Solver Error: 3.015315840e-02
+[2024-04-19 12:21:02][INFO]    MaxRes 1.550388e-02 MomRes [1.550388e-02,9.762136e-03,1.140329e-02] ContRes 6.602861e-06
+[2024-04-19 12:21:02][INFO] Max res 1.550388e-02 Max res crit 1.000000e-03
+[2024-04-19 12:21:02][INFO] Steady state it 24 Max res crit 1.000000e-03 Max res 1.550388e-02 
+[2024-04-19 12:21:02][INFO] SteadyStateRelax 1.317051e-02 AdaptiveSteadyStateRelax 2.394463e-02
+[2024-04-19 12:21:02][INFO]    Solver it: 24 Solver Error: 3.791240224e-09 Relative Solver Error: 1.328562374e-04 Max Solver Error: 2.429849978e-02
+[2024-04-19 12:21:02][INFO]    MaxRes 1.237952e-02 MomRes [1.237952e-02,7.729847e-03,9.133097e-03] ContRes 5.150354e-06
+[2024-04-19 12:21:02][INFO] Max res 1.237952e-02 Max res crit 1.000000e-03
+[2024-04-19 12:21:02][INFO] Steady state it 25 Max res crit 1.000000e-03 Max res 1.237952e-02 
+[2024-04-19 12:21:02][INFO] SteadyStateRelax 1.317051e-02 AdaptiveSteadyStateRelax 2.394465e-02
+[2024-04-19 12:21:02][INFO]    Solver it: 25 Solver Error: 3.029301794e-09 Relative Solver Error: 1.066962381e-04 Max Solver Error: 1.957517227e-02
+[2024-04-19 12:21:02][INFO]    MaxRes 9.889032e-03 MomRes [9.889032e-03,6.133998e-03,7.320203e-03] ContRes 4.012296e-06
+[2024-04-19 12:21:02][INFO] Max res 9.889032e-03 Max res crit 1.000000e-03
+[2024-04-19 12:21:02][INFO] Steady state it 26 Max res crit 1.000000e-03 Max res 9.889032e-03 
+[2024-04-19 12:21:03][INFO] SteadyStateRelax 1.317051e-02 AdaptiveSteadyStateRelax 2.394470e-02
+[2024-04-19 12:21:03][INFO]    Solver it: 26 Solver Error: 2.423226145e-09 Relative Solver Error: 8.565683837e-05 Max Solver Error: 1.582215667e-02
+[2024-04-19 12:21:03][INFO]    MaxRes 7.902385e-03 MomRes [7.902385e-03,4.883216e-03,5.924574e-03] ContRes 3.124058e-06
+[2024-04-19 12:21:03][INFO] Max res 7.902385e-03 Max res crit 1.000000e-03
+[2024-04-19 12:21:03][INFO] Steady state it 27 Max res crit 1.000000e-03 Max res 7.902385e-03 
+[2024-04-19 12:21:03][INFO] SteadyStateRelax 1.317051e-02 AdaptiveSteadyStateRelax 2.394477e-02
+[2024-04-19 12:21:03][INFO]    Solver it: 27 Solver Error: 1.940431391e-09 Relative Solver Error: 6.873818791e-05 Max Solver Error: 1.280827734e-02
+[2024-04-19 12:21:03][INFO]    MaxRes 6.318799e-03 MomRes [6.318799e-03,3.894281e-03,4.801316e-03] ContRes 2.432878e-06
+[2024-04-19 12:21:03][INFO] Max res 6.318799e-03 Max res crit 1.000000e-03
+[2024-04-19 12:21:03][INFO] Steady state it 28 Max res crit 1.000000e-03 Max res 6.318799e-03 
+[2024-04-19 12:21:03][INFO] SteadyStateRelax 1.317051e-02 AdaptiveSteadyStateRelax 2.394487e-02
+[2024-04-19 12:21:03][INFO]    Solver it: 28 Solver Error: 1.555340275e-09 Relative Solver Error: 5.513056045e-05 Max Solver Error: 1.036619855e-02
+[2024-04-19 12:21:03][INFO]    MaxRes 5.055921e-03 MomRes [5.055921e-03,3.113427e-03,3.888816e-03] ContRes 1.895939e-06
+[2024-04-19 12:21:03][INFO] Max res 5.055921e-03 Max res crit 1.000000e-03
+[2024-04-19 12:21:03][INFO] Steady state it 29 Max res crit 1.000000e-03 Max res 5.055921e-03 
+[2024-04-19 12:21:03][INFO] SteadyStateRelax 1.317051e-02 AdaptiveSteadyStateRelax 2.394499e-02
+[2024-04-19 12:21:03][INFO]    Solver it: 29 Solver Error: 1.247814123e-09 Relative Solver Error: 4.419333577e-05 Max Solver Error: 8.387671075e-03
+[2024-04-19 12:21:03][INFO]    MaxRes 4.048848e-03 MomRes [4.048848e-03,2.490365e-03,3.148118e-03] ContRes 1.478985e-06
+[2024-04-19 12:21:03][INFO] Max res 4.048848e-03 Max res crit 1.000000e-03
+[2024-04-19 12:21:03][INFO] Steady state it 30 Max res crit 1.000000e-03 Max res 4.048848e-03 
+[2024-04-19 12:21:03][INFO] SteadyStateRelax 1.317051e-02 AdaptiveSteadyStateRelax 2.394511e-02
+[2024-04-19 12:21:03][INFO]    Solver it: 30 Solver Error: 1.001960306e-09 Relative Solver Error: 3.541743628e-05 Max Solver Error: 6.784942265e-03
+[2024-04-19 12:21:03][INFO]    MaxRes 3.246778e-03 MomRes [3.246778e-03,1.997639e-03,2.547315e-03] ContRes 1.155047e-06
+[2024-04-19 12:21:03][INFO] Max res 3.246778e-03 Max res crit 1.000000e-03
+[2024-04-19 12:21:03][INFO] Steady state it 31 Max res crit 1.000000e-03 Max res 3.246778e-03 
+[2024-04-19 12:21:03][INFO] SteadyStateRelax 1.317051e-02 AdaptiveSteadyStateRelax 2.394524e-02
+[2024-04-19 12:21:03][INFO]    Solver it: 31 Solver Error: 8.052108805e-10 Relative Solver Error: 2.838524568e-05 Max Solver Error: 5.486863391e-03
+[2024-04-19 12:21:03][INFO]    MaxRes 2.607017e-03 MomRes [2.607017e-03,1.617995e-03,2.060303e-03] ContRes 9.031127e-07
+[2024-04-19 12:21:03][INFO] Max res 2.607017e-03 Max res crit 1.000000e-03
+[2024-04-19 12:21:03][INFO] Steady state it 32 Max res crit 1.000000e-03 Max res 2.607017e-03 
+[2024-04-19 12:21:03][INFO] SteadyStateRelax 1.317051e-02 AdaptiveSteadyStateRelax 2.394536e-02
+[2024-04-19 12:21:03][INFO]    Solver it: 32 Solver Error: 6.476085951e-10 Relative Solver Error: 2.274997258e-05 Max Solver Error: 4.464230643e-03
+[2024-04-19 12:21:03][INFO]    MaxRes 2.094862e-03 MomRes [2.094862e-03,1.310629e-03,1.665752e-03] ContRes 7.068644e-07
+[2024-04-19 12:21:03][INFO] Max res 2.094862e-03 Max res crit 1.000000e-03
+[2024-04-19 12:21:03][INFO] Steady state it 33 Max res crit 1.000000e-03 Max res 2.094862e-03 
+[2024-04-19 12:21:03][INFO] SteadyStateRelax 1.317051e-02 AdaptiveSteadyStateRelax 2.394548e-02
+[2024-04-19 12:21:03][INFO]    Solver it: 33 Solver Error: 5.212496677e-10 Relative Solver Error: 1.824678054e-05 Max Solver Error: 3.705016494e-03
+[2024-04-19 12:21:03][INFO]    MaxRes 1.695376e-03 MomRes [1.695376e-03,1.061722e-03,1.346264e-03] ContRes 5.537573e-07
+[2024-04-19 12:21:03][INFO] Max res 1.695376e-03 Max res crit 1.000000e-03
+[2024-04-19 12:21:03][INFO] Steady state it 34 Max res crit 1.000000e-03 Max res 1.695376e-03 
+[2024-04-19 12:21:03][INFO] SteadyStateRelax 1.317051e-02 AdaptiveSteadyStateRelax 2.394558e-02
+[2024-04-19 12:21:03][INFO]    Solver it: 34 Solver Error: 4.198551044e-10 Relative Solver Error: 1.464193860e-05 Max Solver Error: 3.072318234e-03
+[2024-04-19 12:21:03][INFO]    MaxRes 1.375014e-03 MomRes [1.375014e-03,8.601204e-04,1.088902e-03] ContRes 4.341304e-07
+[2024-04-19 12:21:03][INFO] Max res 1.375014e-03 Max res crit 1.000000e-03
+[2024-04-19 12:21:03][INFO] Steady state it 35 Max res crit 1.000000e-03 Max res 1.375014e-03 
+[2024-04-19 12:21:03][INFO] SteadyStateRelax 1.317051e-02 AdaptiveSteadyStateRelax 2.394567e-02
+[2024-04-19 12:21:03][INFO]    Solver it: 35 Solver Error: 3.384268108e-10 Relative Solver Error: 1.175234036e-05 Max Solver Error: 2.545638737e-03
+[2024-04-19 12:21:03][INFO]    MaxRes 1.115634e-03 MomRes [1.115634e-03,6.968308e-04,8.813647e-04] ContRes 3.405541e-07
+[2024-04-19 12:21:03][INFO] Max res 1.115634e-03 Max res crit 1.000000e-03
+[2024-04-19 12:21:03][INFO] Steady state it 36 Max res crit 1.000000e-03 Max res 1.115634e-03 
+[2024-04-19 12:21:03][INFO] SteadyStateRelax 1.317051e-02 AdaptiveSteadyStateRelax 2.394574e-02
+[2024-04-19 12:21:03][INFO]    Solver it: 36 Solver Error: 2.729818607e-10 Relative Solver Error: 9.434460917e-06 Max Solver Error: 2.107662990e-03
+[2024-04-19 12:21:03][INFO]    MaxRes 9.118909e-04 MomRes [9.118909e-04,5.645604e-04,7.143392e-04] ContRes 2.672600e-07
+[2024-04-19 12:21:03][INFO] Max res 9.118909e-04 Max res crit 1.000000e-03
+[2024-04-19 12:21:03][INFO] Steady state it 37 Max res crit 1.000000e-03 Max res 9.118909e-04 
+[2024-04-19 12:21:03][VERB]    Cavity Id 0
+[2024-04-19 12:21:03][VERB]    Total fluid mass flow rate through boundaries = -9.75297e-10 Inlet mass flow 1e-05
+[2024-04-19 12:21:03][VERB]    Mass flow residual = 9.75297e-05
+[2024-04-19 12:21:03][VERB]    Mass flow residual = 9.75297e-05
+[2024-04-19 12:21:03][INFO] ---------------------------------------------------------
+[2024-04-19 12:21:03][INFO] Summary of execution times for call hierarchy functions:
+[2024-04-19 12:21:03][INFO] ImmersedVolumeGrid_Update (1 calls) took 0.439481 s (12.6724 %).
+[2024-04-19 12:21:03][INFO]   ImmersedVolumeGrid_Update_InitUpdate (1 calls) took 0.047986 s (1.38368 %).
+[2024-04-19 12:21:03][INFO]   ImmersedVolumeGrid_Update_AutomaticGridAdaptation (1 calls) took 0.11407 s (3.28921 %).
+[2024-04-19 12:21:03][INFO]   ImmersedVolumeGrid_Update_ConnectETCFluid (1 calls) took 0.181956 s (5.24671 %).
+[2024-04-19 12:21:03][INFO]   ImmersedVolumeGrid_Update_ConnectETCCEM (1 calls) took 0.095448 s (2.75225 %).
+[2024-04-19 12:21:03][INFO] FluidSolver_SolveSimpleIt (37 calls) took 2.83709 s (81.8075 %).
+[2024-04-19 12:21:03][INFO]   SolveMomentum (37 calls) took 1.94753 s (56.1571 %).
+[2024-04-19 12:21:03][INFO]     SolveMomentum_Clear/Init (37 calls) took 0.004267 s (0.123039 %).
+[2024-04-19 12:21:03][INFO]     SolveMomentum_AssembleMomentum (37 calls) took 0.191941 s (5.53462 %).
+[2024-04-19 12:21:03][INFO]     SolveMomentum_CalcResidualMomentum (37 calls) took 0.012896 s (0.371857 %).
+[2024-04-19 12:21:03][INFO]     SolveMomentum_setMatrix (37 calls) took 0.010454 s (0.301441 %).
+[2024-04-19 12:21:03][INFO]     SolveMomentum_SolveU (37 calls) took 0.666161 s (19.2088 %).
+[2024-04-19 12:21:03][INFO]     SolveMomentum_SolveV (37 calls) took 0.567884 s (16.375 %).
+[2024-04-19 12:21:03][INFO]     SolveMomentum_SolveW (37 calls) took 0.492412 s (14.1987 %).
+[2024-04-19 12:21:03][INFO]     SolveMomentum_Momentum solved (37 calls) took 0.001203 s (0.0346885 %).
+[2024-04-19 12:21:03][INFO]   FluidSolver_SolveSimpleIt_SolveMomentum (37 calls) took 1.94775 s (56.1635 %).
+[2024-04-19 12:21:03][INFO]   SolvePressureCorrection (37 calls) took 0.685912 s (19.7783 %).
+[2024-04-19 12:21:03][INFO]     SolvePressureCorrection_AssemblePressureCorrection(true) (5 calls) took 0.08633 s (2.48933 %).
+[2024-04-19 12:21:03][INFO]     SolvePressureCorrection_setMatrix (5 calls) took 0.004178 s (0.120473 %).
+[2024-04-19 12:21:03][INFO]     SolvePressureCorrection_solve (37 calls) took 0.51142 s (14.7468 %).
+[2024-04-19 12:21:03][INFO]   FluidSolver_SolveSimpleIt_SolvePressureCorrection (37 calls) took 0.686156 s (19.7853 %).
+[2024-04-19 12:21:03][INFO]   FluidSolver_SolveSimpleIt_CorrectPressure (37 calls) took 0.000888 s (0.0256055 %).
+[2024-04-19 12:21:03][INFO]   FluidSolver_SolveSimpleIt_CalcGradPressureArea (37 calls) took 0.068509 s (1.97546 %).
+[2024-04-19 12:21:03][INFO]   FluidSolver_SolveSimpleIt_CorrectVelocity (37 calls) took 0.007424 s (0.214071 %).
+[2024-04-19 12:21:03][INFO]   FluidSolver_SolveSimpleIt_CalcRelativeError (37 calls) took 0.113882 s (3.28379 %).
+[2024-04-19 12:21:03][INFO]     SolvePressureCorrection_AssemblePressureCorrection(false) (32 calls) took 0.08316 s (2.39792 %).
+[2024-04-19 12:21:03][INFO] ---------------------------------------------------------
